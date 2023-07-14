@@ -101,9 +101,6 @@ const MasscanIntegration = {
                 status,
             }
         },
-        scan_types_indeterminate() {
-            return !(this.scan_types.length === 0 || this.scan_types.length === this.available_scan_types.length)
-        },
         modal() {
             return $(this.$el)
         },
@@ -112,14 +109,6 @@ const MasscanIntegration = {
         }
     },
     methods: {
-        handle_select_all(e) {
-            if (this.scan_types_indeterminate || !e.target.checked) {
-                this.scan_types = []
-                e.target.checked = false
-            } else {
-                this.scan_types = [...this.available_scan_types]
-            }
-        },
         clear() {
             Object.assign(this.$data, {
                 ...this.$data,
@@ -206,14 +195,6 @@ const MasscanIntegration = {
                     alertMain.add(`Deletion error. <button class="btn btn-primary" @click="modal.modal('show')">Open modal<button>`)
                 }
             })
-        },
-        handleScanTypeCheck(value, checked) {
-            if (checked) {
-                this.scan_types.push(value)
-            } else {
-                const i = this.scan_types.indexOf(value)
-                this.scan_types.splice(i, 1)
-            }
         },
         async set_default(local) {
             this.is_fetching = true

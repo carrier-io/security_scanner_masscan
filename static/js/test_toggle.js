@@ -24,9 +24,6 @@ const MasscanIntegration = {
                 save_intermediates_to,
             }
         },
-        scan_types_indeterminate() {
-            return !(this.scan_types.length === 0 || this.scan_types.length === this.available_scan_types.length)
-        }
     },
     watch: {
         selected_integration(newState, oldState) {
@@ -61,24 +58,6 @@ const MasscanIntegration = {
                 )
             } catch (e) {
                 alertCreateTest.add(e, 'danger-overlay')
-            }
-        },
-
-
-        handle_select_all(e) {
-            if (this.scan_types_indeterminate || !e.target.checked) {
-                this.scan_types = []
-                e.target.checked = false
-            } else {
-                this.scan_types = [...this.available_scan_types]
-            }
-        },
-        handleScanTypeCheck(value, checked) {
-            if (checked) {
-                this.scan_types.push(value)
-            } else {
-                const i = this.scan_types.indexOf(value)
-                this.scan_types.splice(i, 1)
             }
         },
 
