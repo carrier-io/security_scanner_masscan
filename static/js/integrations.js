@@ -32,7 +32,7 @@ const MasscanIntegration = {
                         <div class="invalid-feedback">[[ error.include_ports ]]</div>
                     </div>
                     <div class="col-6">
-        
+
                         <h9>Exclude ports</h9>
                         <p>
                             <h13>Optional</h13>
@@ -44,8 +44,8 @@ const MasscanIntegration = {
                         <div class="invalid-feedback">[[ error.exclude_ports ]]</div>
                     </div>
                 </div>
-                
-                <h9>Save intermediates to</h9>
+
+                <!--<h9>Save intermediates to</h9>
                 <p>
                     <h13>Optional</h13>
                 </p>
@@ -53,7 +53,7 @@ const MasscanIntegration = {
                        placeholder=""
                        v-model="save_intermediates_to"
                        :class="{ 'is-invalid': error.save_intermediates_to }">
-                <div class="invalid-feedback">[[ error.save_intermediates_to ]]</div>
+                <div class="invalid-feedback">[[ error.save_intermediates_to ]]</div>-->
             </div>
         </template>
         <template #footer>
@@ -88,7 +88,7 @@ const MasscanIntegration = {
                 project_id,
                 include_ports,
                 exclude_ports,
-                save_intermediates_to,
+                // save_intermediates_to,
                 status,
             } = this
             return {
@@ -97,7 +97,7 @@ const MasscanIntegration = {
                 project_id,
                 include_ports,
                 exclude_ports,
-                save_intermediates_to,
+                // save_intermediates_to,
                 status,
             }
         },
@@ -227,7 +227,7 @@ const MasscanIntegration = {
 
             include_ports: "0-65535",
             exclude_ports: "",
-            save_intermediates_to: '/data/intermediates/dast',
+            // save_intermediates_to: '/data/intermediates/dast',
 
             pluginName: 'security_scanner_masscan',
             api_url: V.build_api_url('integrations', 'integration') + '/',
